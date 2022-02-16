@@ -14,7 +14,7 @@
             <button id="viewHighscore">View Highscores</button>
         </div>
         <div id="timer">
-            <p>Time: <span id="gametime">0</span> </p> 
+            <p>TIME: <span id="gametime">0</span> </p> 
         </div>
     </header>
     <!-- This is the main container that gets repopulated with each click-->
@@ -26,10 +26,10 @@
             Try to answer the following questions within the time limit of 75 seconds. <br> Correct answers will earn a point. Incorrect answers will decrease time by ten seconds.
         </h2>
         <ul id="answers">
-            <li><button id="answer1">this</button></li>
-            <li><button id="answer2">that</button></li>
-            <li><button id="answer3">here</button></li>
-            <li><button id="answer4">there</button></li>
+            <li><button id="answer1"></button></li>
+            <li><button id="answer2"></button></li>
+            <li><button id="answer3"></button></li>
+            <li><button id="answer4"></button></li>
         </ul>
         <div id="result"></div>
         <button id="startButton">START GAME</button>
@@ -37,45 +37,3 @@
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
-
-
-
-
-<!-- Questions page 
-h2 Multiple Choice Question
-1. answer <button>
-2. answer button
-3. answer button
-4. answer button
-(displays on click depending on true/false answer)
-hr
-wrong! or Correct!
--->
-    <!--
-        compare selected button value 1,2,3,4 to answer 
-        if === , then add 5 to score
-        if !=== , then subtract 10 from time
-    -->
-
-<!-- End Game page
-h1 Game Over!
-h2 Your score is ____.
-need to make a hidden HTML element for this vvvvv
-Enter initials: (input box) Submit button
--->
-
-<!-- High Score page
-h1 High scores
-Enumerated list of initials and scores
-Play Again button Clear High Scores button 
-Score card can be its
--->
-
-<!--Functions
-        Render Questions
-        Render Scores
-        End Game
-        Enter Initials
-        Clear Scores
-        Play Again
--->

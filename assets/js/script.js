@@ -1,8 +1,5 @@
 var start = document.querySelector("#startButton");
-var questionsIndex = questions.length;
 var time = document.querySelector("#gametime")
-
-
 // Make an array of questions with their corresponding responses and answer
 var questions = [
         {
@@ -46,6 +43,8 @@ var questions = [
                 answer: "2",
         },
 ];
+var questionsIndex = questions.length;
+console.log(questionsIndex);
 
 
 function startGame(event){
@@ -58,7 +57,7 @@ function startGame(event){
         timer.setAttribute("style", "visibility: visible");
         
         //start timer
-        var secondsLeft = 75;
+        var secondsLeft = 76;
         // Sets interval in variable
         var timerInterval = setInterval(function() {
                 secondsLeft--;
@@ -70,8 +69,25 @@ function startGame(event){
                 // gameOver();
                 }
         }, 1000);
+
+        answer1.style.visibility = "visible";
+        answer2.style.visibility = "visible";
+        answer3.style.visibility = "visible";
+        answer4.style.visibility = "visible";
+
+        popQuestion();
 }
 
+function popQuestion(){
+        var currentQuestion = questions[0];  //need a way to ++ this index number after each question, when index === 0 triggers gameOver()
+        midText.textContent = currentQuestion.question;
+        answer1.textContent = currentQuestion.response1;
+        answer2.textContent = currentQuestion.response2;
+        answer3.textContent = currentQuestion.response3;
+        answer4.textContent = currentQuestion.response4;
+
+        //need eventlisteners for each of these responses, and a way to compare the response to the answer, displays right/wrong, changes score or time, then loads next question
+}
 
 //gameOver function - when all questions finished or time runs out, displays "Your score is ____" and and input box to enter initials. Submit button loads high score page (same as View Highscores button)
 
@@ -79,45 +95,27 @@ function startGame(event){
 start.addEventListener("click", startGame);
 
 
-//Finishing last question or time running out triggers all done page to display with your high score, add initials input, and submit button.
-        //Submit button adds initials and high score to local memory and displays the high score listings
+//Finishing last question or time running out triggers gameOver() to display with your high score, add initials input, and submit button.
+        //Submit button enterInitials and high score to local memory and displays the high score listings
+
+        // End Game page:
+        // h1 Game Over!
+        // h2 Your score is ____.
+        // need to make a hidden HTML element for this vvvvv
+        // Enter initials: (input box) Submit button
 
 // High score listings displays and enumerates from local memory
         //clear button wipes local memory and re-displays high score page
         //play again button starts a new game
 
+        // High Score page:
+        // h1 High scores
+        // Enumerated list of initials and scores
+        // Play Again button Clear High Scores button 
 
 
-// Questions page:
-// h2 Multiple Choice Question
-// 1. answer <button>
-// 2. answer button
-// 3. answer button
-// 4. answer button
-
-// (displays on click depending on true/false answer)
-// Correct! or Incorrect!
-//         compare selected button value 1,2,3,4 to answer 
-//         if === , then add 5 to score
-//         if !=== , then subtract 10 from time
-
-// End Game page:
-// h1 Game Over!
-// h2 Your score is ____.
-// need to make a hidden HTML element for this vvvvv
-// Enter initials: (input box) Submit button
-
-
-// High Score page:
-// h1 High scores
-// Enumerated list of initials and scores
-// Play Again button Clear High Scores button 
-
-
-// Functions:
-//         Render Questions
-//         Render Scores
-//         End Game
-//         Enter Initials
-//         Clear Scores
-//         Play Again
+// Functions To Make:
+//         gameOver
+//         enterInitials
+//         clearScores
+//         playAgain

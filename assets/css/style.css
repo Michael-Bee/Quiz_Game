@@ -19,7 +19,7 @@ html {
     width: 100%;
 }
 
-#viewHighscore button{
+#viewHighscore{
     font-size: 1.6rem;
     background-color: purple;
     color: white;
@@ -28,9 +28,49 @@ html {
 }
 
 #timer {
+    visibility: hidden;
     font-size: 1.6rem;
     font-weight: bolder;
     padding: 5px;
 }
 
 /* Center Display */
+#centerDisplay {
+    padding: 20px;
+}
+
+#bigText{
+    font-size: 4rem;
+    font-weight: bolder;
+    color: purple;
+}
+
+#midText {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#answers {
+    visibility: hidden ;
+    list-style-type: none;
+}
+
+#centerDisplay li button {
+    padding: 5px;
+    background-color: purple;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 5px 50px;
+}
+
+#startButton {
+    font-size: 2.4rem;
+    background-color: purple;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+

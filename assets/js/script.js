@@ -1,5 +1,52 @@
 var start = document.querySelector("#startButton");
-start.setAttribute("style", "visibility: visible")
+
+
+// Make an array of questions with their corresponding responses and answer
+
+var questions = [
+        {
+                question: "What are a group of bees called?",
+                response1: "A crowd.",
+                response2: "A den.",
+                response3: "A nest.",
+                response4: "A swarm.",
+                answer: "4",
+        },
+        {
+                question: "How many of the United States are contiguous?",
+                response1: "50",
+                response2: "2",
+                response3: "48",
+                response4: "none",
+                answer: "3",
+        },
+        {
+                question: "When it is 5:00PM in New York, what time is it in California?",
+                response1: "6:00PM",
+                response2: "4:00PM",
+                response3: "3:00PM",
+                response4: "2:00PM",
+                answer: "4",
+        },
+        {
+                question: "How many notes are in an octave",
+                response1: "8",
+                response2: "10",
+                response3: "5",
+                response4: "0",
+                answer: "1",
+        },
+        {
+                question: "What does BMW stand for?",
+                response1: "British Motor Ways",
+                response2: "Bavarian Motor Works",
+                response3: "Big Money Waster",
+                response4: "Bring More Wrenches",
+                answer: "2",
+        },
+];
+var questionsIndex = questions.length;
+
 
 
 
@@ -22,11 +69,7 @@ function renderQuestion(event){
 start.addEventListener("click", renderQuestion);
 
 
-
-
-//First page: HS and Timer are visible. Title, game description and rules with time penalty, start game button. 
-
-//Questions pages: need function that populates the question in h2, adds 4 buttons with answers, all buttons need their own event listener that triggers an if/else. 
+//Questions pages: need function that populates this from a dataset: Question in h2, adds 4 buttons with responses, each with their own eventlistener that triggers an if/else, comparing response to answer. 
         //A false answer triggers display of wrong, takes 5 seconds off timer, and loads the next question. 
         //A true answer displays right and loads the next question.
 

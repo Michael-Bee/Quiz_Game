@@ -1,8 +1,6 @@
 var start = document.querySelector("#startButton");
 
-
 // Make an array of questions with their corresponding responses and answer
-
 var questions = [
         {
                 question: "What are a group of bees called?",
@@ -47,31 +45,43 @@ var questions = [
 ];
 var questionsIndex = questions.length;
 
+//Make timer
+var time = document.querySelector("#gametime")
 
 
 
-function renderQuestion(event){
+
+
+function startGame(event){
         //stop bubbling
         event.stopPropagation();
+        console.log("start clicked");
 
-        console.log("start clicked")
-
-        start.setAttribute("style", "visibility: hidden")
-        bigText.setAttribute("style", "visibility: hidden")
-        timer.setAttribute("style", "visibility: visible")
+        start.setAttribute("style", "visibility: hidden");
+        bigText.setAttribute("style", "visibility: hidden");
+        timer.setAttribute("style", "visibility: visible");
+        
         //start timer
+        var secondsLeft = 75;
+        // Sets interval in variable
+        var timerInterval = setInterval(function() {
+                secondsLeft--;
+                time.textContent = secondsLeft;
+
+                if(secondsLeft === 0) {
+                clearInterval(timerInterval);
+                alert("Game Over");
+                // gameOver();
+                }
+        }, 1000);
 }
 
 
-//Game Over function - when all questions finished or time runs out, displays "Your score is ____" and and input box to enter initials. Submit button loads high score page (same as View Highscores button)
+//gameOver function - when all questions finished or time runs out, displays "Your score is ____" and and input box to enter initials. Submit button loads high score page (same as View Highscores button)
 
 
-start.addEventListener("click", renderQuestion);
+start.addEventListener("click", startGame);
 
-
-//Questions pages: need function that populates this from a dataset: Question in h2, adds 4 buttons with responses, each with their own eventlistener that triggers an if/else, comparing response to answer. 
-        //A false answer triggers display of wrong, takes 5 seconds off timer, and loads the next question. 
-        //A true answer displays right and loads the next question.
 
 //Finishing last question or time running out triggers all done page to display with your high score, add initials input, and submit button.
         //Submit button adds initials and high score to local memory and displays the high score listings

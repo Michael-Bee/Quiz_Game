@@ -1,4 +1,7 @@
 var start = document.querySelector("#startButton");
+var questionsIndex = questions.length;
+var time = document.querySelector("#gametime")
+
 
 // Make an array of questions with their corresponding responses and answer
 var questions = [
@@ -43,13 +46,6 @@ var questions = [
                 answer: "2",
         },
 ];
-var questionsIndex = questions.length;
-
-//Make timer
-var time = document.querySelector("#gametime")
-
-
-
 
 
 function startGame(event){
@@ -89,3 +85,39 @@ start.addEventListener("click", startGame);
 // High score listings displays and enumerates from local memory
         //clear button wipes local memory and re-displays high score page
         //play again button starts a new game
+
+
+
+// Questions page:
+// h2 Multiple Choice Question
+// 1. answer <button>
+// 2. answer button
+// 3. answer button
+// 4. answer button
+
+// (displays on click depending on true/false answer)
+// Correct! or Incorrect!
+//         compare selected button value 1,2,3,4 to answer 
+//         if === , then add 5 to score
+//         if !=== , then subtract 10 from time
+
+// End Game page:
+// h1 Game Over!
+// h2 Your score is ____.
+// need to make a hidden HTML element for this vvvvv
+// Enter initials: (input box) Submit button
+
+
+// High Score page:
+// h1 High scores
+// Enumerated list of initials and scores
+// Play Again button Clear High Scores button 
+
+
+// Functions:
+//         Render Questions
+//         Render Scores
+//         End Game
+//         Enter Initials
+//         Clear Scores
+//         Play Again

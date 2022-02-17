@@ -2,7 +2,6 @@ var start = document.querySelector("#startButton");
 var time = document.querySelector("#gametime");
 var result = document.querySelector("#result");
 
-//Array of questions
 var questions = [
         {
                 question: "A group of bees is called a ______.",
@@ -50,7 +49,6 @@ var score = 0;
 var secondsLeft = 61;
 
 function startGame(event){
-        //stop bubbling
         event.stopPropagation();
         console.log("start clicked");
 
@@ -58,8 +56,7 @@ function startGame(event){
         bigText.setAttribute("style", "visibility: hidden");
         timer.setAttribute("style", "visibility: visible");
         
-        //start timer
-        // Sets interval in variable
+
         var timerInterval = setInterval(function() {
                 secondsLeft--;
                 time.textContent = secondsLeft;
@@ -135,9 +132,7 @@ function gameOver() {
         midText.textContent = ("FINAL SCORE: " + score*secondsLeft);
         initialSubmit.style.visibility = "visible";
 
-        //NEEDS: Input box to "Please enter your initials:" Submit button adds high score and initials into local memory and triggers highScore function
-        // need to make a hidden HTML element for this vvvvv
-        // Enter initials: (input box) Submit button
+        //NEEDS: Submit button adds high score and initials into local memory and triggers highScore function
 };
 
 function highScore() {
@@ -146,9 +141,8 @@ function highScore() {
                 //clear button wipes local memory and re-displays high score page
                 //play again button starts a new game
 
-                // High Score page:
                 // h1 High scores
-                // Enumerated list of initials and scores
+                // h2 list of initials and scores
                 // Clear High Scores button
                 //Play Again button 
 }

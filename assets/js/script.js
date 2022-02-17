@@ -133,14 +133,14 @@ function gameOver() {
         bigText.setAttribute("style", "visibility: visible");
         bigText.textContent = ("Game Over!");
         midText.textContent = ("FINAL SCORE: " + score*secondsLeft);
-        clearInterval(timerInterval);
+
         //NEEDS: Input box to "Please enter your initials:" Submit button adds high score and initials into local memory and triggers highScore function
         // need to make a hidden HTML element for this vvvvv
         // Enter initials: (input box) Submit button
 };
 
 function highScore() {
-        alert("will trigger highscores function once built");
+        alert("calls the highScore function to display high scores");
         // High score listings displays and enumerates from local memory
                 //clear button wipes local memory and re-displays high score page
                 //play again button starts a new game

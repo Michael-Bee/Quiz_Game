@@ -1,14 +1,16 @@
 var start = document.querySelector("#startButton");
 var time = document.querySelector("#gametime")
-// Make an array of questions with their corresponding responses and answer
+
+
+//Array of questions
 var questions = [
         {
-                question: "What are a group of bees called?",
-                response1: "A crowd.",
-                response2: "A den.",
-                response3: "A nest.",
-                response4: "A swarm.",
-                answer: "4",
+                question: "A group of bees is called a ______.",
+                response1: "crowd",
+                response2: "den",
+                response3: "nest",
+                response4: "swarm",
+                correctAnswer: "4",
         },
         {
                 question: "How many of the United States are contiguous?",
@@ -16,7 +18,7 @@ var questions = [
                 response2: "2",
                 response3: "48",
                 response4: "none",
-                answer: "3",
+                correctAnswer: "3",
         },
         {
                 question: "When it is 5:00PM in New York, what time is it in California?",
@@ -24,7 +26,7 @@ var questions = [
                 response2: "4:00PM",
                 response3: "3:00PM",
                 response4: "2:00PM",
-                answer: "4",
+                correctAnswer: "4",
         },
         {
                 question: "How many notes are in an octave",
@@ -32,7 +34,7 @@ var questions = [
                 response2: "10",
                 response3: "5",
                 response4: "0",
-                answer: "1",
+                correctAnswer: "1",
         },
         {
                 question: "What does BMW stand for?",
@@ -40,11 +42,11 @@ var questions = [
                 response2: "Bavarian Motor Works",
                 response3: "Big Money Waster",
                 response4: "Bring More Wrenches",
-                answer: "2",
+                correctAnswer: "2",
         },
 ];
-var questionsIndex = questions.length;
-console.log(questionsIndex);
+var questionIndex = 0;
+var score = 0;
 
 
 function startGame(event){
@@ -57,7 +59,7 @@ function startGame(event){
         timer.setAttribute("style", "visibility: visible");
         
         //start timer
-        var secondsLeft = 76;
+        var secondsLeft = 61;
         // Sets interval in variable
         var timerInterval = setInterval(function() {
                 secondsLeft--;
@@ -65,33 +67,70 @@ function startGame(event){
 
                 if(secondsLeft === 0) {
                 clearInterval(timerInterval);
-                alert("Game Over");
-                // gameOver();
+                gameOver();
                 }
         }, 1000);
-
+        
         answer1.style.visibility = "visible";
         answer2.style.visibility = "visible";
         answer3.style.visibility = "visible";
         answer4.style.visibility = "visible";
-
+        
         popQuestion();
-}
+};
 
-function popQuestion(){
-        var currentQuestion = questions[0];  //need a way to ++ this index number after each question, when index === 0 triggers gameOver()
+function popQuestion() {
+        var currentQuestion = questions[questionIndex];
+
         midText.textContent = currentQuestion.question;
-        answer1.textContent = currentQuestion.response1;
-        answer2.textContent = currentQuestion.response2;
-        answer3.textContent = currentQuestion.response3;
-        answer4.textContent = currentQuestion.response4;
+        answer1.textContent = ("A: " + currentQuestion.response1);
+        answer2.textContent = ("B: " + currentQuestion.response2);
+        answer3.textContent = ("C: " + currentQuestion.response3);
+        answer4.textContent = ("D: " + currentQuestion.response4);
 
-        //need eventlisteners for each of these responses, and a way to compare the response to the answer, displays right/wrong, changes score or time, then loads next question
+        answer1.addEventListener("click", checkAnswer);
+        answer2.addEventListener("click", checkAnswer);
+        answer3.addEventListener("click", checkAnswer);
+        answer4.addEventListener("click", checkAnswer);
+};
+
+function checkAnswer() {
+        console.log("a response was clicked")
+        var dataNum = this.getAttribute("data-num")
+        console.log(dataNum)
+        // if (event.target.dataset.num === currentQuestion.answer) {
+        //      score ++;
+        // } else {
+        //      secondsLeft -10;
+        // };
+
+        questionIndex ++;
+        if (questionIndex === questions.length) {
+                gameOver();
+        } else {
+                popQuestion();
+        };       
+};
+
+function gameOver() {
+        timer.setAttribute("style", "visibility: hidden");
+        answer1.style.visibility = "hidden";
+        answer2.style.visibility = "hidden";
+        answer3.style.visibility = "hidden";
+        answer4.style.visibility = "hidden";
+        bigText.setAttribute("style", "visibility: visible");
+        bigText.textContent = ("Game Over!")
+        midText.textContent = ("Your score is: " + score);
+
+};
+
+function highScore() {
+        alert("displays highscores with clear or play game buttons")
 }
 
 //gameOver function - when all questions finished or time runs out, displays "Your score is ____" and and input box to enter initials. Submit button loads high score page (same as View Highscores button)
 
-
+viewHighscore.addEventListener("click", highScore);
 start.addEventListener("click", startGame);
 
 

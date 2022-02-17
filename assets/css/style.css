@@ -61,6 +61,7 @@ html {
     background-color: purple;
     color: white;
     padding: 5px;
+    text-align: left;
     border-radius: 5px;
     width: fit-content;
     min-width: 120px;

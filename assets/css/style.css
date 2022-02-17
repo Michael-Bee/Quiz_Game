@@ -51,6 +51,28 @@ html {
     margin-bottom: 20px;
 }
 
+#initialSubmit {
+    visibility: hidden;
+    font-size: 2rem;
+}
+
+#initials {
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#submitInit {
+    font-size: 1.6rem;
+    background-color: purple;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
 #answers {
     visibility: hidden ;
     list-style-type: none;

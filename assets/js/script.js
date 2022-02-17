@@ -133,6 +133,7 @@ function gameOver() {
         bigText.setAttribute("style", "visibility: visible");
         bigText.textContent = ("Game Over!");
         midText.textContent = ("FINAL SCORE: " + score*secondsLeft);
+        initialSubmit.style.visibility = "visible";
 
         //NEEDS: Input box to "Please enter your initials:" Submit button adds high score and initials into local memory and triggers highScore function
         // need to make a hidden HTML element for this vvvvv

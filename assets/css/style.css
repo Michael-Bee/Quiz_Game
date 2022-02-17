@@ -68,6 +68,13 @@ html {
     margin: 5px 50px;
 }
 
+#result {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: bold;
+    margin: 10px 50px;
+}
+
 #startButton {
     visibility: visible;
     font-size: 2.4rem;

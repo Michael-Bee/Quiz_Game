@@ -1,6 +1,6 @@
 var start = document.querySelector("#startButton");
-var time = document.querySelector("#gametime")
-
+var time = document.querySelector("#gametime");
+var result = document.querySelector("#result");
 
 //Array of questions
 var questions = [
@@ -47,7 +47,7 @@ var questions = [
 ];
 var questionIndex = 0;
 var score = 0;
-
+var secondsLeft = 61;
 
 function startGame(event){
         //stop bubbling
@@ -59,7 +59,6 @@ function startGame(event){
         timer.setAttribute("style", "visibility: visible");
         
         //start timer
-        var secondsLeft = 61;
         // Sets interval in variable
         var timerInterval = setInterval(function() {
                 secondsLeft--;
@@ -94,15 +93,26 @@ function popQuestion() {
         answer4.addEventListener("click", checkAnswer);
 };
 
-function checkAnswer() {
-        console.log("a response was clicked")
-        var dataNum = this.getAttribute("data-num")
-        console.log(dataNum)
-        // if (event.target.dataset.num === currentQuestion.answer) {
-        //      score ++;
-        // } else {
-        //      secondsLeft -10;
-        // };
+function checkAnswer(event) {
+        event.stopPropagation();
+        console.log("a response was clicked");
+
+        var currentQuestion = questions[questionIndex];
+        console.log(event.target.getAttribute("data-num"));
+        if (event.target.getAttribute("data-num") === currentQuestion.correctAnswer) {
+                result.textContent = "Right answer!";
+                setTimeout(() => {
+                        result.textContent = " ";
+                }, 1500);
+                score ++;
+                console.log(score);
+        } else {
+                result.textContent = "Sorry, wrong answer.";
+                setTimeout(() => {
+                        result.textContent = " ";
+                }, 1500);
+                secondsLeft-=10;
+        };
 
         questionIndex ++;
         if (questionIndex === questions.length) {
@@ -119,13 +129,13 @@ function gameOver() {
         answer3.style.visibility = "hidden";
         answer4.style.visibility = "hidden";
         bigText.setAttribute("style", "visibility: visible");
-        bigText.textContent = ("Game Over!")
-        midText.textContent = ("Your score is: " + score);
+        bigText.textContent = ("Game Over!");
+        midText.textContent = ("FINAL SCORE: " + score*secondsLeft);
 
 };
 
 function highScore() {
-        alert("displays highscores with clear or play game buttons")
+        alert("displays highscores with clear or play game buttons");
 }
 
 //gameOver function - when all questions finished or time runs out, displays "Your score is ____" and and input box to enter initials. Submit button loads high score page (same as View Highscores button)

@@ -104,7 +104,7 @@ function checkAnswer(event) {
                 setTimeout(() => {
                         result.textContent = " ";
                 }, 1500);
-                score ++;
+                score +=5;
                 console.log(score);
         } else {
                 result.textContent = "Sorry, wrong answer.";
@@ -123,48 +123,36 @@ function checkAnswer(event) {
 };
 
 function gameOver() {
+        viewHighscore.setAttribute("style", "visibility: hidden");
         timer.setAttribute("style", "visibility: hidden");
         answer1.style.visibility = "hidden";
         answer2.style.visibility = "hidden";
         answer3.style.visibility = "hidden";
         answer4.style.visibility = "hidden";
+        
         bigText.setAttribute("style", "visibility: visible");
         bigText.textContent = ("Game Over!");
         midText.textContent = ("FINAL SCORE: " + score*secondsLeft);
-
+        clearInterval(timerInterval);
+        //NEEDS: Input box to "Please enter your initials:" Submit button adds high score and initials into local memory and triggers highScore function
+        // need to make a hidden HTML element for this vvvvv
+        // Enter initials: (input box) Submit button
 };
 
 function highScore() {
-        alert("displays highscores with clear or play game buttons");
+        alert("will trigger highscores function once built");
+        // High score listings displays and enumerates from local memory
+                //clear button wipes local memory and re-displays high score page
+                //play again button starts a new game
+
+                // High Score page:
+                // h1 High scores
+                // Enumerated list of initials and scores
+                // Clear High Scores button
+                //Play Again button 
 }
 
-//gameOver function - when all questions finished or time runs out, displays "Your score is ____" and and input box to enter initials. Submit button loads high score page (same as View Highscores button)
+
 
 viewHighscore.addEventListener("click", highScore);
 start.addEventListener("click", startGame);
-
-
-//Finishing last question or time running out triggers gameOver() to display with your high score, add initials input, and submit button.
-        //Submit button enterInitials and high score to local memory and displays the high score listings
-
-        // End Game page:
-        // h1 Game Over!
-        // h2 Your score is ____.
-        // need to make a hidden HTML element for this vvvvv
-        // Enter initials: (input box) Submit button
-
-// High score listings displays and enumerates from local memory
-        //clear button wipes local memory and re-displays high score page
-        //play again button starts a new game
-
-        // High Score page:
-        // h1 High scores
-        // Enumerated list of initials and scores
-        // Play Again button Clear High Scores button 
-
-
-// Functions To Make:
-//         gameOver
-//         enterInitials
-//         clearScores
-//         playAgain
